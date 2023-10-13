@@ -32,27 +32,51 @@ namespace Лабораторная_работа_3_консоль
             for (double x = a; x <= b; x += k)
             {
                 Console.Write("X= {0} ", Math.Round(x, 4));
-                int j = 1;
+
+                int f = 1, fTemp = 1, nTemp = 0; ;
+                double lastResult = 1, logResult = 1, xResult = x, summTemp=1;
+
+                do
+                {
+                    logResult *= Math.Log(3);
+                    f *= fTemp;
+                    fTemp++;
+                    xResult *= x;
+                    nTemp++;
+                    lastResult = logResult / f * xResult;
+                }
+                while (lastResult != e);
+                Console.WriteLine(nTemp);
+                string fdsda = Console.ReadLine();
+
+
                 for (int i = 1; i <= n; i++)
                 {
-                    j *= i;
-                    double logResult = 1;
-                    for (int z = 1; z <= i; z++)
-                        logResult *= Math.Log(3);
-                    SN += logResult / j * x;
 
-                    if (logResult / j * x < e)
-                        SE += Math.Log(3) / j * x;
+                    logResult *= Math.Log(3);
+                    f *= fTemp;
+                    fTemp++;
+                    xResult *= x;
+
+                    double tempResult = logResult / f * xResult; //вычисление куска рекуррента
+                    
+                    SN += tempResult; //итоговая переменная для общей суммы
+
+                    if (lastResult - tempResult < e) //итоговая переменная для точности?
+                        SE += tempResult;
+
+                    lastResult = tempResult;
+
+
+
+                    
+
+                    
 
                 }
-
-               
-
                 y = Math.Pow(3, x);
                 Console.WriteLine("SN= {0} SE= {1} Y= {2}", SN, SE, y);
-                SN = 1;
-                SE = 1;
-            }            
+            }           
         }
     }
 }
