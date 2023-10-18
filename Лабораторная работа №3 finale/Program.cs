@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 
 namespace Лабораторная_работа_3_консоль
 {
@@ -17,6 +17,11 @@ namespace Лабораторная_работа_3_консоль
             double result = Math.Pow(Math.Log(3), i) / Factorial(i) * Math.Pow(x, i);
             return result;
         }
+public static void obrabotka(double ref l, int ref f, int ref fTemp, double ref xResult)
+{
+
+
+}
 
         static void Main(string[] args)
         {
