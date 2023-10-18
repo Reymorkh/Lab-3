@@ -4,26 +4,14 @@ namespace Лабораторная_работа_3_консоль
 {
     internal class Program
     {
-        public static int Factorial(int n)
+        public static void obrabotka(ref double logResult, ref int fResult, ref int fTemp, ref double xResult, double x, ref double lastResult)
         {
-            int factorial = 1;
-            for (int i = 1; i != n; i++)
-                factorial *= i;
-            return factorial;
-
+            logResult *= Math.Log(3);
+            fResult *= fTemp;
+            fTemp++;
+            xResult *=x;
+            lastResult = logResult / fResult * xResult;
         }
-        public static double Function(int i, double x)
-        {
-            double result = Math.Pow(Math.Log(3), i) / Factorial(i) * Math.Pow(x, i);
-            return result;
-        }
-public static void obrabotka(double ref loga, int ref f, int ref fTemp, double ref xResult, int x)
-{
-loga *= Math.Log(3)
-f *= fTemp;
-fTemp++;
-xResult *=x;
-}
 
         static void Main(string[] args)
         {
@@ -33,39 +21,24 @@ xResult *=x;
             Console.WriteLine("Условие задачи: y равен 3 в степени x");
             Console.WriteLine("диапазон аргумента: 0,1 <= x <= 1; k = 0.09; n = 10, e = 0.0001");
             Console.WriteLine("s = 1 + (Ln(3)/1!) * x ... (Math.Pow(Ln(3), n) / n!) * (Math.Pow(x, n)");
-
-
             for (double x = a; x <= b; x += k)
             {
                 Console.Write("X= {0} ", Math.Round(x, 4));
-
                 int fResult = 1, fTemp = 1;
-                double lastResult = 1, logResult = 1, xResult = 1, summTemp = 1;
-
+                double lastResult = 1, logResult = 1, xResult = 1;
                 for (int i = 1; i <= n; i++)
                 {
-obrabotka(logResult, fResult, fTemp, xResult, x);
-                    //logResult *= Math.Log(3);
-                    //fResult *= fTemp;
-                    //fTemp++;
-                    //xResult *= x;
-
-                    lastResult = logResult / fResult * xResult; //вычисление куска рекуррента                    
-                    SN += lastResult; //итоговая переменная для общей суммы
+                    obrabotka(ref logResult, ref fResult, ref fTemp, ref xResult, x, ref lastResult);                  
+                    SN += lastResult;
                 }
-lastResult = 1;
+                lastResult = 1;
                 logResult = 1;
                 fResult = 1;
                 fTemp = 1;
                 xResult = 1;
                 do
                 {
-obrabotka(logResult, fResult, fTemp, xResult, x);
-                    //logResult *= Math.Log(3);
-                    //fResult *= fTemp;
-                    //fTemp++;
-                    //xResult *= x;
-                    lastResult = logResult / fResult * xResult;
+                    obrabotka(ref logResult, ref fResult, ref fTemp, ref xResult, x, ref lastResult);
                     SE += lastResult;
                 }
                 while (lastResult < e);
