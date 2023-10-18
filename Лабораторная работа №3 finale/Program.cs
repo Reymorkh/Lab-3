@@ -15,6 +15,10 @@ namespace Лабораторная_работа_3_консоль
 
         static void Main(string[] args)
         {
+
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Clear();
             const double a = 0.1, b = 1, k = (b - a) / 10, e = 0.0001;
             const int n = 10;
             double SN = 1, SE = 1, y;
