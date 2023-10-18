@@ -17,10 +17,12 @@ namespace Лабораторная_работа_3_консоль
             double result = Math.Pow(Math.Log(3), i) / Factorial(i) * Math.Pow(x, i);
             return result;
         }
-public static void obrabotka(double ref l, int ref f, int ref fTemp, double ref xResult)
+public static void obrabotka(double ref loga, int ref f, int ref fTemp, double ref xResult, int x)
 {
-
-
+loga *= Math.Log(3)
+f *= fTemp;
+fTemp++;
+xResult *=x;
 }
 
         static void Main(string[] args)
@@ -42,26 +44,27 @@ public static void obrabotka(double ref l, int ref f, int ref fTemp, double ref 
 
                 for (int i = 1; i <= n; i++)
                 {
+obrabotka(logResult, fResult, fTemp, xResult, x);
+                    //logResult *= Math.Log(3);
+                    //fResult *= fTemp;
+                    //fTemp++;
+                    //xResult *= x;
 
-                    logResult *= Math.Log(3);
-                    fResult *= fTemp;
-                    fTemp++;
-                    xResult *= x;
-
-                    double tempResult = logResult / fResult * xResult; //вычисление куска рекуррента                    
-                    SN += tempResult; //итоговая переменная для общей суммы
+                    lastResult = logResult / fResult * xResult; //вычисление куска рекуррента                    
+                    SN += lastResult; //итоговая переменная для общей суммы
                 }
-
+lastResult = 1;
                 logResult = 1;
                 fResult = 1;
                 fTemp = 1;
                 xResult = 1;
                 do
                 {
-                    logResult *= Math.Log(3);
-                    fResult *= fTemp;
-                    fTemp++;
-                    xResult *= x;
+obrabotka(logResult, fResult, fTemp, xResult, x);
+                    //logResult *= Math.Log(3);
+                    //fResult *= fTemp;
+                    //fTemp++;
+                    //xResult *= x;
                     lastResult = logResult / fResult * xResult;
                     SE += lastResult;
                 }
