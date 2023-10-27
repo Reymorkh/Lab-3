@@ -22,7 +22,6 @@ namespace Лабораторная_работа_3_консоль
       Console.Write("Условие задачи: y равен 3 в степени x\nдиапазон аргумента: 0,1 <= x <= 1; k = 0.09; n = 10, e = 0.0001\n");
       Console.WriteLine("s = 1 + (Ln(3)/1!) * x ... (Math.Pow(Ln(3), n) / n!) * (Math.Pow(x, n)\n");
 
-
       for (double x = a; x <= b; x += k)
       {
         Console.Write("X= {0} ", Math.Round(x, 4));
