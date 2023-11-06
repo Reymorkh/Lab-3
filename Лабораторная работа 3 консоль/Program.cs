@@ -45,7 +45,7 @@ namespace Лабораторная_работа_3_консоль
           lastResult = FuncPieceResult(ref logResult, ref factorialResult, ref factorialTemp, ref xResult, x);
           SE += lastResult;
         }
-        while (lastResult < e);
+        while (lastResult > e);
 
         y = Math.Pow(3, x);
         Console.WriteLine("SN= {0} SE= {1} Y= {2}", SN, SE, Math.Round(y, 4));
