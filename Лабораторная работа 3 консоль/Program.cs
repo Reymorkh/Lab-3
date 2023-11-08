@@ -24,7 +24,7 @@ namespace Лабораторная_работа_3_консоль
 
       for (double x = a; x <= b; x += k)
       {
-        Console.Write("X= {0} ", Math.Round(x, 4));
+        Console.Write($"X= {x:f4} ");
 
         int factorialResult = 1, factorialTemp = 1;
         double lastResult, logResult = 1, xResult = 1;
@@ -48,7 +48,7 @@ namespace Лабораторная_работа_3_консоль
         while (lastResult > e);
 
         y = Math.Pow(3, x);
-        Console.WriteLine("SN= {0} SE= {1} Y= {2}", SN, SE, Math.Round(y, 4));
+        Console.WriteLine($"SN= {SN:f4} SE= {SE:f4} Y= {y:f4}");
       }
     }
   }
