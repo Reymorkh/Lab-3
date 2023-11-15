@@ -5,7 +5,7 @@ namespace Лабораторная_работа_3_консоль
 {
   internal class Program
   {
-    static double FuncPieceResult(ref double logResult, ref int factorialResult, ref int factorialTemp, ref double xResult, double x)
+    static double recurrentPiece(ref double logResult, ref int factorialResult, ref int factorialTemp, ref double xResult, double x)
     {
       logResult *= Math.Log(3);
       factorialResult *= factorialTemp;
@@ -31,7 +31,7 @@ namespace Лабораторная_работа_3_консоль
 
         for (int i = 1; i <= n; i++) //вычисление степенного ряда с известной длиной (n)
         {
-          double tempResult = FuncPieceResult(ref logResult, ref factorialResult, ref factorialTemp, ref xResult, x); //вычисление куска рекуррента                    
+          double tempResult = recurrentPiece(ref logResult, ref factorialResult, ref factorialTemp, ref xResult, x); //вычисление куска рекуррента                    
           SN += tempResult; //итоговая переменная для общей суммы
         }
 
@@ -42,7 +42,7 @@ namespace Лабораторная_работа_3_консоль
 
         do //вычисление степенного ряда для заданной точности (e)
         {
-          lastResult = FuncPieceResult(ref logResult, ref factorialResult, ref factorialTemp, ref xResult, x);
+          lastResult = recurrentPiece(ref logResult, ref factorialResult, ref factorialTemp, ref xResult, x);
           SE += lastResult;
         }
         while (lastResult > e);
