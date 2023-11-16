@@ -5,15 +5,6 @@ namespace Лабораторная_работа_3_консоль
 {
   internal class Program
   {
-    static double recurrentPiece(ref double logResult, ref int factorialResult, ref int factorialTemp, ref double xResult, double x)
-    {
-      logResult *= Math.Log(3);
-      factorialResult *= factorialTemp;
-      factorialTemp++;
-      xResult *= x;
-      return logResult / factorialResult * xResult;
-    }
-
     static void Main(string[] args)
     {
       const double a = 0.1, b = 1, k = (b - a) / 10, e = 0.0001;
@@ -31,7 +22,11 @@ namespace Лабораторная_работа_3_консоль
 
         for (int i = 1; i <= n; i++) //вычисление степенного ряда с известной длиной (n)
         {
-          double tempResult = recurrentPiece(ref logResult, ref factorialResult, ref factorialTemp, ref xResult, x); //вычисление куска рекуррента                    
+          logResult *= Math.Log(3);
+          factorialResult *= factorialTemp;
+          factorialTemp++;
+          xResult *= x;
+          double tempResult = logResult / factorialResult * xResult; //вычисление куска рекуррента                    
           SN += tempResult; //итоговая переменная для общей суммы
         }
 
@@ -42,7 +37,11 @@ namespace Лабораторная_работа_3_консоль
 
         do //вычисление степенного ряда для заданной точности (e)
         {
-          lastResult = recurrentPiece(ref logResult, ref factorialResult, ref factorialTemp, ref xResult, x);
+          logResult *= Math.Log(3);
+          factorialResult *= factorialTemp;
+          factorialTemp++;
+          xResult *= x;
+          lastResult = logResult / factorialResult * xResult;
           SE += lastResult;
         }
         while (lastResult > e);
