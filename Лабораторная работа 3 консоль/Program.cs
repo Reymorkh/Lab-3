@@ -13,10 +13,10 @@ namespace Лабораторная_работа_3_консоль
       Console.Write("Условие задачи: y равен 3 в степени x\nдиапазон аргумента: 0,1 <= x <= 1; k = 0.09; n = 10, e = 0.0001\n");
       Console.WriteLine("s = 1 + (Ln(3)/1!) * x ... (Math.Pow(Ln(3), n) / n!) * (Math.Pow(x, n)\n");
 
-      int counter1, counter2;
+      int counter1;
       for (double x = a; x <= b; x += k)
       {
-        counter1 = 1;
+        counter1 = 0;
         Console.Write($"X= {x:f4} ");
 
         int factorialResult = 1, factorialTemp = 1;
@@ -34,10 +34,10 @@ namespace Лабораторная_работа_3_консоль
             SE += lastResult; //вычисление степенного ряда для заданной точности (e)
           counter1++;
         }
-        while (lastResult > e || counter1 == 10);
+        while (lastResult > e || counter1 != n);
 
         y = Math.Pow(3, x);
-        Console.WriteLine($"SN= {SN:f4} SE= {SE:f4} Y= {y:f4} {counter1}");
+        Console.WriteLine($"SN= {SN:f4} SE= {SE:f4} Y= {y:f4}");
       }
     }
   }
